@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="Context"
+            type="android.content.Context"/>
+        <variable
+            name="BaseModel"
+            type="com.example.project.myspeechtotext.ui.common.entity.base.BaseModel"/>
+        <variable
+            name="BackModelCallBack"
+            type="com.example.project.myspeechtotext.ui.common.entity.base.BaseModel.BackModelCallBack"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.common.BaseActivity">
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:visibility="@{BaseModel.toolBarShowing?View.VISIBLE:View.GONE}"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingRight="@dimen/_6sdp">
+
+                    <ImageView
+                        android:id="@+id/rightOption"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginRight="@dimen/_6sdp"
+                        android:padding="@dimen/_3sdp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_arrow_back"
+                        android:onClick="@{(v)-> BackModelCallBack.clickBackArrow(v)}"
+                        android:visibility="@{BaseModel.isBackButtonShow?View.VISIBLE:View.GONE}"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/rightOption"
+                        android:gravity="left|center_vertical"
+                        android:text="@{BaseModel.tittle}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_16ssp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.AppBarLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <FrameLayout
+                android:id="@+id/containerFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#20000000"
+                android:visibility="@{BaseModel.isLoading ? View.VISIBLE : View.GONE}">
+                <RelativeLayout
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_55sdp"
+                    android:background="@drawable/loader_bg"
+                    android:layout_centerInParent="true">
+                    <ProgressBar
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="DashboardModel"
+            type="com.example.project.myspeechtotext.ui.dashboard.entity.model.DashboardModel"/>
+        <variable
+            name="DashboardCallBack"
+            type="com.example.project.myspeechtotext.ui.dashboard.entity.model.DashboardModel.DashboardCallBack"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/_56sdp"
+        tools:context=".ui.dashboard.DashboardActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:onClick="@{(v)->DashboardCallBack.toSpeak(v)}"
+                android:gravity="center"
+                android:text="Speak"
+                android:background="@drawable/speak_btn"
+                android:textStyle="bold"
+                android:textSize="@dimen/_15sdp"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:setDefaultAdapter="@{DashboardModel.dictionaryAdapter}"
+                android:layout_marginTop="@dimen/_16sdp"/>
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</layout>

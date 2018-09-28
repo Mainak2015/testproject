@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="DistionaryDataModel"
+            type="com.example.project.myspeechtotext.ui.dashboard.entity.model.DistionaryData"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_36sdp"
+            android:background="@{DistionaryDataModel.isSelected?@color/colorSelected:@color/colorWhite}"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:text="@{DistionaryDataModel.dicWord}"
+                android:textSize="@dimen/_13sdp"/>
+            <View
+                android:layout_width="@dimen/_1ssp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBorder"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@{DistionaryDataModel.dicCount}"
+                android:textSize="@dimen/_13sdp"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1ssp"
+            android:background="@color/colorBorder"/>
+    </LinearLayout>
+</layout>

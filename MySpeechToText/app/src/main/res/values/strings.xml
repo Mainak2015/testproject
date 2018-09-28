@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Speech To Text</string>
+
+    <!--Error message-->
+    <string name="err_msg_internet">Please try again</string>
+    <string name="err_msg_internet_connection">No internet.</string>
+    <string name="err_msg_not_support">Your Device Don\'t Support Speech Input</string>
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="no_match">Not match</string>
+
+</resources>
